@@ -121,7 +121,7 @@ namespace MorningChallenges
                 case "Bad":
                     Console.WriteLine("Great");
                     break;
-                Default:
+                default:
                     Console.WriteLine("What");
                     break;
             }
@@ -133,5 +133,52 @@ namespace MorningChallenges
             Console.WriteLine($"{john.FullName()}");
             Console.WriteLine(john.Age() );
         }
+
+        // Calculator Tests
+
+        // Add
+        [TestMethod]
+        public void Add()
+        {
+            Calculator calc = new Calculator();
+            Assert.AreEqual(11, calc.Add(5, 6));
+            Assert.AreEqual(5, Math.Floor(calc.Add(3.4, 2)));
+            Assert.AreEqual(113, calc.Add(new double[] { 32, 12, 59, 10 }));
+        }
+
+
+        // Sub
+        [TestMethod]
+        public void Sub()
+        {
+            Calculator calc = new Calculator();
+            Assert.AreEqual(25, calc.Sub(50, 25));
+            Assert.AreEqual(-49, calc.Sub(new double[] { 32, 12, 59, 10 }));
+        }
+
+        // Div
+        [TestMethod]
+        public void Div()
+        {
+            Calculator calc = new Calculator();
+            Assert.AreEqual(2, calc.Div(new double[] { 64, 4, 4, 2 }));
+            Assert.AreEqual(2.5, calc.Div(new double[] { 500, 5, 10, 4 }));
+        }
+        // Mul
+        [TestMethod]
+        public void Mul()
+        {
+            Calculator calc = new Calculator();
+            Assert.AreEqual(226560, calc.Mul(new double[] { 32, 12, 59, 10 }));
+        }
+
+        [TestMethod]
+        public void Percentage()
+        {
+            Calculator calc = new Calculator();
+            string percent = calc.Percent(100, 400);
+            Assert.AreEqual("25%", percent);
+        }
+
     }
 }
